@@ -1,7 +1,10 @@
 library rename_app;
 
+import 'dart:developer';
+
 import 'package:rename_app/constants.dart';
 import 'package:rename_app/rename_app.dart';
+import 'package:rename_app/utils.dart';
 
 String? android;
 String? ios;
@@ -9,16 +12,16 @@ String? web;
 String? mac;
 String? windows;
 void main(List<String> arguments) async {
-  if (arguments.length == 0) {
-    print(HELP);
+  if (arguments.isEmpty) {
+    Utils.logMessage(help);
     return;
   }
   parseArguments(arguments);
-  print('📱 Android App Name: $android');
-  print('📱 IOS App Name: $ios');
-  print('💻 Web App Name: $web');
-  // print('🖥 MAC App Name: $mac');
-  print('💻 Windows App Name: $windows\n\n');
+  Utils.logMessage('📱 Android App Name: $android');
+  Utils.logMessage('📱 IOS App Name: $ios');
+  Utils.logMessage('💻 Web App Name: $web');
+  // Utils.logMessage('🖥 MAC App Name: $mac');
+  Utils.logMessage('💻 Windows App Name: $windows\n\n');
 
   await RenameApp.android(android ?? '');
   await RenameApp.ios(ios ?? '');
@@ -26,14 +29,16 @@ void main(List<String> arguments) async {
   // await RenameApp.mac(mac ?? '');
   await RenameApp.windows(windows ?? '');
 
-  print("\n✔️  RENAMED APPS SUCCESSFULLY!");
+  Utils.logMessage(
+    "--------------------------------\n✅  RENAMED APPS SUCCESSFULLY!\n--------------------------------",
+  );
 }
 
 void parseArguments(List<String> args) {
   for (var arg in args) {
     List<String> splitted = arg.split('=');
     if (splitted.length != 2) {
-      print(HELP);
+      Utils.logMessage(help);
       return;
     }
     if (splitted.first == "all") {

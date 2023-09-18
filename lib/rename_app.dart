@@ -5,7 +5,7 @@ import 'package:rename_app/utils.dart';
 
 class RenameApp {
   static Future<void> android(String android) async {
-    if (await Utils.fileNotExists(ANDROID_MANIFEST_PATH)) {
+    if (await Utils.fileNotExists(androidManifestFile)) {
       Utils.printNoConfigFound('android');
       return;
     }
@@ -14,11 +14,11 @@ class RenameApp {
       return;
     }
 
-    await Utils.renameAndroid(ANDROID_MANIFEST_PATH, android);
+    await Utils.renameAndroid(androidManifestFile, android);
   }
 
   static Future<void> ios(String ios) async {
-    if (await Utils.fileNotExists(IOS_PLIST_PATH) || ios.isEmpty) {
+    if (await Utils.fileNotExists(iosPlistPath) || ios.isEmpty) {
       Utils.printNoConfigFound('ios');
       return;
     }
@@ -27,11 +27,11 @@ class RenameApp {
       return;
     }
 
-    await Utils.renameIOS(IOS_PLIST_PATH, ios);
+    await Utils.renameIOS(iosPlistPath, ios);
   }
 
   static Future<void> web(String web) async {
-    if (await Utils.fileNotExists(WEB_MANIFEST_PATH)) {
+    if (await Utils.fileNotExists(webManifestPath)) {
       Utils.printNoConfigFound('web');
       return;
     }
@@ -40,12 +40,12 @@ class RenameApp {
       return;
     }
 
-    await Utils.renameWeb(WEB_MANIFEST_PATH, web);
+    await Utils.renameWeb(webManifestPath, web);
   }
 
   static void mac(String mac) {}
   static Future<void> windows(String windows) async {
-    if (await Utils.fileNotExists(WINDOWS_CMAKE_LISTS_PATH)) {
+    if (await Utils.fileNotExists(windowsCmakeListsPath)) {
       Utils.printNoConfigFound('windows');
       return;
     }
@@ -54,6 +54,6 @@ class RenameApp {
       return;
     }
 
-    await Utils.renameWindows(WINDOWS_CMAKE_LISTS_PATH, windows);
+    await Utils.renameWindows(windowsCmakeListsPath, windows);
   }
 }

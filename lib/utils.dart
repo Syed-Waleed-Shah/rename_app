@@ -14,7 +14,6 @@ class Utils {
   }
 
   static Future<void> renameAndroid(String filePath, String appName) async {
-    printStartMessage("android");
     String data = await File(filePath).readAsString();
     XmlDocument document = XmlDocument.parse(data);
     var application =
@@ -26,8 +25,6 @@ class Utils {
   }
 
   static Future<void> renameIOS(String filePath, String appName) async {
-    printStartMessage('ios');
-
     String data = await File(filePath).readAsString();
     XmlDocument document = XmlDocument.parse(data);
     var keys = document
@@ -53,14 +50,12 @@ class Utils {
   }
 
   static Future<void> renameWeb(String filePath, String appName) async {
-    printStartMessage('web');
-
     String data = await File(filePath).readAsString();
     Map<String, dynamic> document = jsonDecode(data);
-    document.containsKey('name') ? document['name'] = appName : print('');
+    document.containsKey('name') ? document['name'] = appName : logMessage('');
     document.containsKey('short_name')
         ? document['short_name'] = appName
-        : print('');
+        : logMessage('');
     var encoder = const JsonEncoder.withIndent("     ");
     String prettified = encoder.convert(document);
     await saveFile(filePath, prettified);
@@ -68,8 +63,6 @@ class Utils {
   }
 
   static Future<void> renameWindows(String filePath, String appName) async {
-    printStartMessage('windows');
-
     String data = await File(filePath).readAsString();
     var appNameLine = RegExp(r'set\(BINARY_NAME.*').firstMatch(data)?.group(0);
     if (appNameLine != null) {
@@ -79,15 +72,17 @@ class Utils {
     printFinishMessage('windows');
   }
 
-  static void printStartMessage(String platform) {
-    print('🟡 STARTED RENAMING <${platform.toUpperCase()}> PROJECT');
-  }
-
   static void printFinishMessage(String platform) {
-    print('🟢 FINISHED RENAMING <${platform.toUpperCase()}> PROJECT\n');
+    logMessage('✅ FINISHED RENAMING [${platform.toUpperCase()}] PROJECT\n');
   }
 
   static void printNoConfigFound(String platform) {
-    print('🧐 NO CONFIGURATION FOUND FOR <${platform.toUpperCase()}> PROJECT');
+    logMessage(
+        '🧐 NO CONFIGURATION FOUND FOR <${platform.toUpperCase()}> PROJECT');
+  }
+
+  static void logMessage(String message) {
+    // ignore: avoid_print
+    print(message);
   }
 }
