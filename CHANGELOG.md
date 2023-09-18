@@ -1,3 +1,5 @@
+## 1.3.1
+* Fixed typo in documentation.
 ## 1.3.0
 * Created example project
 * Updated lisence.

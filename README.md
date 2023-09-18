@@ -9,10 +9,10 @@ Developer : [Syed Waleed Shah](https://github.com/Syed-Waleed-Shah)
 Please Contribute : [Github Repo](https://github.com/Syed-Waleed-Shah)
 
 ## Features 🔥
-✅  Remane Android Project
-✅  Remane IOS Project
-✅  Remane WEB Project
-✅  Remane Windows Project
+✅  Rename Android Project
+✅  Rename IOS Project
+✅  Rename WEB Project
+✅  Rename Windows Project
 
 ## How To Rename ? 🛠
 ##### 1) ADD THE PACKAGE TO DEPENDENCIES IN pubspec.yaml
