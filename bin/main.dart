@@ -1,7 +1,5 @@
 library rename_app;
 
-import 'dart:developer';
-
 import 'package:rename_app/constants.dart';
 import 'package:rename_app/rename_app.dart';
 import 'package:rename_app/utils.dart';
