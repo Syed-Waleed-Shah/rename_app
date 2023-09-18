@@ -1,10 +1,11 @@
 name: rename_app
 description: A flutter package to rename app.
-version: 1.0.0
+version: 1.2.0
 homepage: null
+repository: https://github.com/Syed-Waleed-Shah/rename_app
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.12.0 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
