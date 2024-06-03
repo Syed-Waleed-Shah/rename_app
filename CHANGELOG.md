@@ -1,3 +1,7 @@
+## 1.3.4
+
+* Updated Lisence.
+
 ## 1.3.3
 
 * Updated dependencies to latest version.
