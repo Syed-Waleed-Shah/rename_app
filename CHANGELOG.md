@@ -1,3 +1,8 @@
+## 1.3.3
+
+* Updated dependencies to latest version.
+* Fixed issues and updated commands in README
+
 ## 1.3.2
 
 * Changed developer url.
