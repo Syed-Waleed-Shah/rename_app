@@ -34,10 +34,10 @@ class Utils {
         .first
         .children;
 
-    // Removing xml elements which are generated due to line breaks (this xml parser is creating xml element as 'XmlText' for line breaks)
+    /// Removing xml elements which are generated due to line breaks (this xml parser is creating xml element as 'XmlText' for line breaks)
     keys.removeWhere((element) => element is XmlText);
     for (int i = 0; i < keys.length; i++) {
-      // Will be true if google is already configured
+      /// Will be true if google is already configured
       if (keys[i].innerText == 'CFBundleDisplayName') {
         var value = XmlElement(XmlName('string'));
         value.innerText = appName;
@@ -82,7 +82,7 @@ class Utils {
   }
 
   static void logMessage(String message) {
-    // ignore: avoid_print
+    /// ignore: avoid_print
     print(message);
   }
 }
