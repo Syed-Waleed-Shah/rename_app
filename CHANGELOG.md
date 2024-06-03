@@ -1,3 +1,7 @@
+## 1.3.5
+
+* Fixed typo in readme.
+
 ## 1.3.4
 
 * Updated Lisence.
