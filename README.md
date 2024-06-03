@@ -1,4 +1,4 @@
-# rRename App
+# Rename App
 
 ### The only flutter package which changes app name for all platforms with sound null safety!
 
@@ -10,20 +10,15 @@ Developer : [Syed Waleed Shah](https://www.linkedin.com/in/syed-waleed-shah/)
 
 Please Contribute : [Github Repo](https://github.com/Syed-Waleed-Shah)
 
-
 ## Features 🔥
 
 ✅  Rename Android Project
 
-
 ✅  Rename IOS Project
-
 
 ✅  Rename WEB Project
 
-
 ✅  Rename Windows Project
-
 
 ## How To Rename ? 🛠
 
