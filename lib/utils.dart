@@ -9,6 +9,15 @@ class Utils {
     return !exists;
   }
 
+  static Future<bool> filesNotExists(List<String> paths) async {
+    for (String path in paths) {
+      if (await File(path).exists()) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   static Future<void> saveFile(String filePath, String data) async {
     await File(filePath).writeAsString(data, flush: true);
   }
@@ -47,6 +56,15 @@ class Utils {
     }
     await saveFile(filePath, document.toXmlString(pretty: true));
     printFinishMessage('ios');
+  }
+
+  static Future<void> renameAllIOS(
+      List<String> filePaths, String appName) async {
+    for (String path in filePaths) {
+      if (!await fileNotExists(path)) {
+        await renameIOS(path, appName);
+      }
+    }
   }
 
   static Future<void> renameWeb(String filePath, String appName) async {

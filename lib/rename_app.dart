@@ -18,7 +18,12 @@ class RenameApp {
   }
 
   static Future<void> ios(String ios) async {
-    if (await Utils.fileNotExists(iosPlistPath) || ios.isEmpty) {
+    List<String> iosPlistFiles = [
+      iosPlistPath,
+      iosDebugPlistPath,
+      iosReleasePlistPath
+    ];
+    if (await Utils.filesNotExists(iosPlistFiles) || ios.isEmpty) {
       Utils.printNoConfigFound('ios');
       return;
     }
@@ -27,7 +32,7 @@ class RenameApp {
       return;
     }
 
-    await Utils.renameIOS(iosPlistPath, ios);
+    await Utils.renameAllIOS(iosPlistFiles, ios);
   }
 
   static Future<void> web(String web) async {

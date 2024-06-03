@@ -1,3 +1,7 @@
+## 1.4.0
+
+* Fixed issue of not renaming IOS project when we have Info-Debug.plist and/or Info-Release.plist
+
 ## 1.3.5
 
 * Fixed typo in readme.
