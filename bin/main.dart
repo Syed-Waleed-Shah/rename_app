@@ -9,6 +9,7 @@ String? ios;
 String? web;
 String? mac;
 String? windows;
+String? linux;
 void main(List<String> arguments) async {
   if (arguments.isEmpty) {
     Utils.logMessage(help);
@@ -19,13 +20,15 @@ void main(List<String> arguments) async {
   Utils.logMessage('📱 IOS App Name: $ios');
   Utils.logMessage('💻 Web App Name: $web');
   // Utils.logMessage('🖥 MAC App Name: $mac');
-  Utils.logMessage('💻 Windows App Name: $windows\n\n');
+  Utils.logMessage('💻 Windows App Name: $windows');
+  Utils.logMessage('💻 Linux App Name: $linux\n\n');
 
   await RenameApp.android(android ?? '');
   await RenameApp.ios(ios ?? '');
   await RenameApp.web(web ?? '');
   // await RenameApp.mac(mac ?? '');
   await RenameApp.windows(windows ?? '');
+  await RenameApp.linux(linux ?? '');
 
   Utils.logMessage(
     "--------------------------------\n✅  RENAMED APPS SUCCESSFULLY!\n--------------------------------",
@@ -45,6 +48,7 @@ void parseArguments(List<String> args) {
       web = splitted.last;
       mac = splitted.last;
       windows = splitted.last;
+      linux = splitted.last;
       return;
     }
     if (splitted.first == "android") {
@@ -62,12 +66,16 @@ void parseArguments(List<String> args) {
     if (splitted.first == "windows") {
       windows = splitted.last;
     }
+    if (splitted.first == "linux") {
+      linux = splitted.last;
+    }
     if (splitted.first == "others") {
       android = android ?? splitted.last;
       ios = ios ?? splitted.last;
       web = web ?? splitted.last;
       mac = mac ?? splitted.last;
       windows = windows ?? splitted.last;
+      linux = linux ?? splitted.last;
     }
   }
 }

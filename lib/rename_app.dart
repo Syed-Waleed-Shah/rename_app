@@ -61,4 +61,17 @@ class RenameApp {
 
     await Utils.renameWindows(windowsCmakeListsPath, windows);
   }
+
+  static Future<void> linux(String linux) async {
+    if (await Utils.fileNotExists(linuxApplicationPath)) {
+      Utils.printNoConfigFound('linux');
+      return;
+    }
+
+    if (linux.isEmpty) {
+      return;
+    }
+
+    await Utils.renameLinux(linuxApplicationPath, linux);
+  }
 }

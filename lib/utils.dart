@@ -90,6 +90,32 @@ class Utils {
     printFinishMessage('windows');
   }
 
+  static Future<void> renameLinux(String filePath, String appName) async {
+    String data = await File(filePath).readAsString();
+
+    final leadings = [
+      r'gtk_window_set_title(window, "',
+      r'gtk_header_bar_set_title(header_bar, "'
+    ];
+    const tail = '");';
+
+    for (final leading in leadings) {
+      final source = '${leading.replaceFirst('(', r'\(')}.*?${tail.replaceFirst(')', r'\)')}';
+      RegExpMatch? match = RegExp(source).firstMatch(data);
+
+      if (match != null) {
+        data = data.substring(0, match.start) +
+            leading +
+            appName +
+            tail +
+            data.substring(match.end, data.length);
+      }
+    }
+
+    await saveFile(filePath, data);
+    printFinishMessage('linux');
+  }
+
   static void printFinishMessage(String platform) {
     logMessage('✅ FINISHED RENAMING [${platform.toUpperCase()}] PROJECT\n');
   }
