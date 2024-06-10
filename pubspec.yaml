@@ -1,6 +1,6 @@
 name: rename_app
 description: The flutter package which changes app name for all platforms with sound null safety!
-version: 1.4.0
+version: 1.5.0
 homepage: null
 repository: https://github.com/Syed-Waleed-Shah/rename_app
 

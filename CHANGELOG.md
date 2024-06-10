@@ -1,3 +1,7 @@
+## 1.5.0
+
+* Added support to rename Linux app. Thanks to https://github.com/Finnomator for contribution.
+
 ## 1.4.0
 
 * Fixed issue of not renaming IOS project when we have Info-Debug.plist and/or Info-Release.plist
