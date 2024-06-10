@@ -15,3 +15,5 @@ const iosReleasePlistPath = "ios/Runner/Info-Release.plist";
 const webManifestPath = "web/manifest.json";
 /// File path of windows/CMakeLists.txt for windows.
 const windowsCmakeListsPath = "windows/CMakeLists.txt";
+/// File path of linux/my_application.cc for linux.
+const linuxApplicationPath = "linux/my_application.cc";

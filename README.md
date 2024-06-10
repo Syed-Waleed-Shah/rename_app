@@ -20,6 +20,8 @@ Please Contribute : [Github Repo](https://github.com/Syed-Waleed-Shah)
 
 ✅  Rename Windows Project
 
+✅  Rename Linux Project
+
 ## How To Rename ? 🛠
 
 ##### 1) ADD THE PACKAGE TO DEPENDENCIES IN pubspec.yaml
@@ -54,16 +56,17 @@ dart run rename_app:main android="Anroid Name" ios="IOS Name" others="Others Nam
 ##### Seperate name for each platform
 
 ```sh
-dart run rename_app:main android="Android Name" ios="IOS Name" web="Web Name" mac="Mac Name" windows="Windows Name" 
+dart run rename_app:main android="Android Name" ios="IOS Name" web="Web Name" mac="Mac Name" windows="Windows Name" linux="Linux Name"
 ```
 
 ## More Flexibilities 😎
 
 | REQUIREMENT  | COMMAND                                                                                   |
-| ------------ | ----------------------------------------------------------------------------------------- |
+|--------------|-------------------------------------------------------------------------------------------|
 | All Same     | ``dart run rename_app:main all="App Name"``                                               |
 | Only Android | ``dart run rename_app:main android="Android App"``                                        |
 | Only IOS     | ``dart run rename_app:main ios="IOS App"``                                                |
 | Only WEB     | ``dart run rename_app:main web="Web App"``                                                |
 | ONLY Windows | ``dart run rename_app:main windows="Windows App"``                                        |
+| ONLY Linux   | ``dart run rename_app:main linux="Linux App"``                                            |
 | With Others  | ``dart run rename_app:main android="Android App" ios="IOS App" others="Others App Name"`` |
