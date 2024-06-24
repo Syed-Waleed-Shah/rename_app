@@ -13,7 +13,7 @@ const iosDebugPlistPath = "ios/Runner/Info-Debug.plist";
 const iosReleasePlistPath = "ios/Runner/Info-Release.plist";
 /// File path of web/maniafest.json for web.
 const webManifestPath = "web/manifest.json";
-/// File path of windows/CMakeLists.txt for windows.
-const windowsCmakeListsPath = "windows/CMakeLists.txt";
+/// File path of windows/runner/main.cpp for windows.
+const windowsMainCppPath = "windows/runner/main.cpp";
 /// File path of linux/my_application.cc for linux.
 const linuxApplicationPath = "linux/my_application.cc";
