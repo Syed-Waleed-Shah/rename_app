@@ -1,6 +1,10 @@
+## 1.6.0
+
+* Fixed issue in renaming windows app. Thanks to [Finnomator](https://github.com/Finnomator) for contribution.
+
 ## 1.5.0
 
-* Added support to rename Linux app. Thanks to https://github.com/Finnomator for contribution.
+* Added support to rename Linux app. Thanks to [Finnomator](https://github.com/Finnomator) for contribution.
 
 ## 1.4.0
 

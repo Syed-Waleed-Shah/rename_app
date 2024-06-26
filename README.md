@@ -6,9 +6,12 @@
 
 - ✊  Dont forget to star the github repo if you found this package useful 😇
 
-Developer : [Syed Waleed Shah](https://www.linkedin.com/in/syed-waleed-shah/)
+Developer : [Syed Waleed Shah](https://www.linkedin.com/in/syed-waleed-shah/ "LinkedIn Profile") ( [LinkedIn](https://www.linkedin.com/in/syed-waleed-shah/ "LinkedIn Profile")  [Github](https://github.com/Syed-Waleed-Shah "Github Profile")  [StackOverflow](https://stackoverflow.com/users/15212735/syed-waleed "StackOverflow Profile") )
 
-Please Contribute : [Github Repo](https://github.com/Syed-Waleed-Shah)
+Please Contribute : [Github Repository](https://github.com/Syed-Waleed-Shah "Github Repository")
+
+Honourable Contributors:
+[Finnomator](https://github.com/Finnomator "Finnomator")
 
 ## Features 🔥
 
@@ -62,7 +65,7 @@ dart run rename_app:main android="Android Name" ios="IOS Name" web="Web Name" ma
 ## More Flexibilities 😎
 
 | REQUIREMENT  | COMMAND                                                                                   |
-|--------------|-------------------------------------------------------------------------------------------|
+| ------------ | ----------------------------------------------------------------------------------------- |
 | All Same     | ``dart run rename_app:main all="App Name"``                                               |
 | Only Android | ``dart run rename_app:main android="Android App"``                                        |
 | Only IOS     | ``dart run rename_app:main ios="IOS App"``                                                |
