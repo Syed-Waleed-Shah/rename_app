@@ -11,7 +11,8 @@ Developer : [Syed Waleed Shah](https://www.linkedin.com/in/syed-waleed-shah/ "Li
 Please Contribute : [Github Repository](https://github.com/Syed-Waleed-Shah "Github Repository")
 
 Honourable Contributors:
-[Finnomator](https://github.com/Finnomator "Finnomator")
+
+1. [Finn Drünert](https://github.com/Finnomator "Github Profile") ( [Github](https://github.com/Finnomator "Github Profile") )
 
 ## Features 🔥
 

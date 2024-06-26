@@ -1,3 +1,7 @@
+## 1.6.1
+
+* Updated README
+
 ## 1.6.0
 
 * Fixed issue in renaming windows app. Thanks to [Finnomator](https://github.com/Finnomator) for contribution.
