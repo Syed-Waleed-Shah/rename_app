@@ -82,9 +82,9 @@ class Utils {
 
   static Future<void> renameWindows(String filePath, String appName) async {
     String data = await File(filePath).readAsString();
-    var appNameLine = RegExp(r'set\(BINARY_NAME.*').firstMatch(data)?.group(0);
+    var appNameLine = RegExp(r'if \(!window\.Create\(L".*?"').firstMatch(data)?.group(0);
     if (appNameLine != null) {
-      data = data.replaceAll(appNameLine, """set(BINARY_NAME "$appName")""");
+      data = data.replaceAll(appNameLine, """if (!window.Create(L"$appName\"""");
     }
     await saveFile(filePath, data);
     printFinishMessage('windows');

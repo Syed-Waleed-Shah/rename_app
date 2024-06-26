@@ -50,7 +50,7 @@ class RenameApp {
 
   static void mac(String mac) {}
   static Future<void> windows(String windows) async {
-    if (await Utils.fileNotExists(windowsCmakeListsPath)) {
+    if (await Utils.fileNotExists(windowsMainCppPath)) {
       Utils.printNoConfigFound('windows');
       return;
     }
@@ -59,7 +59,7 @@ class RenameApp {
       return;
     }
 
-    await Utils.renameWindows(windowsCmakeListsPath, windows);
+    await Utils.renameWindows(windowsMainCppPath, windows);
   }
 
   static Future<void> linux(String linux) async {
