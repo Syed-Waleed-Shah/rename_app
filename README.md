@@ -1,3 +1,6 @@
+
+[![Stand With Palestine](https://raw.githubusercontent.com/TheBSD/StandWithPalestine/main/banner-no-action.svg)](https://thebsd.github.io/StandWithPalestine)
+
 # Rename App
 
 ### The only flutter package which changes app name for all platforms with sound null safety!

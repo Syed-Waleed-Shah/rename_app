@@ -1,3 +1,7 @@
+## 1.6.2
+
+* Updated README
+
 ## 1.6.1
 
 * Updated README
