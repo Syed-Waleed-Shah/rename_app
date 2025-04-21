@@ -1,4 +1,3 @@
-
 [![Stand With Palestine](https://raw.githubusercontent.com/TheBSD/StandWithPalestine/main/banner-no-action.svg)](https://thebsd.github.io/StandWithPalestine)
 
 # Rename App
@@ -16,6 +15,7 @@ Please Contribute : [Github Repository](https://github.com/Syed-Waleed-Shah "Git
 Honourable Contributors:
 
 1. [Finn Drünert](https://github.com/Finnomator "Github Profile") ( [Github](https://github.com/Finnomator "Github Profile") )
+2. [nhan7777](https://github.com/nhan7777 "https://github.com/nhan7777") ( [Gitbub](https://github.com/nhan7777) )
 
 ## Features 🔥
 
