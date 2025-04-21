@@ -47,7 +47,8 @@ class Utils {
     keys.removeWhere((element) => element is XmlText);
     for (int i = 0; i < keys.length; i++) {
       /// Will be true if google is already configured
-      if (keys[i].innerText == 'CFBundleDisplayName') {
+      if (keys[i].innerText == 'CFBundleDisplayName' ||
+          keys[i].innerText == 'CFBundleName') {
         var value = XmlElement(XmlName('string'));
         value.innerText = appName;
         keys.removeAt(i + 1);
