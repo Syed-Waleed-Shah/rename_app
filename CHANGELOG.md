@@ -1,3 +1,7 @@
+## 1.6.3
+
+* Fixed issue: Package is not changing `CFBundleName` in IOS. Thanks to [nhan7777](https://github.com/nhan7777 "nhan7777") for contribution.
+
 ## 1.6.2
 
 * Updated README
