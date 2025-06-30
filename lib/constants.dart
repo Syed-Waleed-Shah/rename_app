@@ -15,5 +15,7 @@ const iosReleasePlistPath = "ios/Runner/Info-Release.plist";
 const webManifestPath = "web/manifest.json";
 /// File path of windows/runner/main.cpp for windows.
 const windowsMainCppPath = "windows/runner/main.cpp";
-/// File path of linux/my_application.cc for linux.
-const linuxApplicationPath = "linux/my_application.cc";
+/// File path of linux/runner/my_application.cc for linux.
+const linuxApplicationPath = "linux/runner/my_application.cc";
+/// Old file path of linux/my_application.cc for linux before flutter 2.37.0.
+const legacyLinuxApplicationPath = "linux/my_application.cc";

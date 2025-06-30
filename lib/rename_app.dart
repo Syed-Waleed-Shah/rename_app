@@ -63,8 +63,13 @@ class RenameApp {
   }
 
   static Future<void> linux(String linux) async {
-    if (await Utils.fileNotExists(linuxApplicationPath)) {
-      Utils.printNoConfigFound('linux');
+    var path = linuxApplicationPath;
+    
+    if (await Utils.fileNotExists(path)) {
+      path = legacyLinuxApplicationPath;
+      if (await Utils.fileNotExists(path)) {
+        Utils.printNoConfigFound('linux');
+      }
       return;
     }
 
@@ -72,6 +77,6 @@ class RenameApp {
       return;
     }
 
-    await Utils.renameLinux(linuxApplicationPath, linux);
+    await Utils.renameLinux(path, linux);
   }
 }
