@@ -1,8 +1,11 @@
 library rename_app;
 
+import 'dart:io';
+
 import 'package:rename_app/constants.dart';
 import 'package:rename_app/rename_app.dart';
 import 'package:rename_app/utils.dart';
+import 'package:yaml/yaml.dart';
 
 String? android;
 String? ios;
@@ -12,8 +15,29 @@ String? windows;
 String? linux;
 void main(List<String> arguments) async {
   if (arguments.isEmpty) {
-    Utils.logMessage(help);
-    return;
+    final pubspecFile = File('pubspec.yaml');
+
+    if (pubspecFile.existsSync()) {
+      try {
+        final content = pubspecFile.readAsStringSync();
+        final yamlMap = loadYaml(content);
+
+        final configName = yamlMap['config_name']?['name'];
+        if (configName != null && configName is String) {
+          Utils.logMessage("Using config_name from pubspec.yaml: $configName");
+          arguments = ['all=$configName'];
+        } else {
+          Utils.logMessage(help);
+          return;
+        }
+      } catch (e) {
+        Utils.logMessage(help);
+        return;
+      }
+    } else {
+      Utils.logMessage(help);
+      return;
+    }
   }
   parseArguments(arguments);
   Utils.logMessage('📱 Android App Name: $android');
