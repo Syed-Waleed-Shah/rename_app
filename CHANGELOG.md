@@ -1,3 +1,7 @@
+## 1.6.6
+
+* Reads `config_name.name` from `pubspec.yaml` and uses it as the app name when you run `dart run rename_app:main` with no CLI arguments (equivalent to `all="<name>"`). If `config_name` or `name` is missing, behavior is unchanged (help is shown). Thanks to [Harsh Yadav](https://github.com/harshyadavDeveloper) for contribution.
+
 ## 1.6.3
 
 * Fixed issue: Package is not changing `CFBundleName` in IOS. Thanks to [nhan7777](https://github.com/nhan7777 "nhan7777") for contribution.
