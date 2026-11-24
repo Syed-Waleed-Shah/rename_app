@@ -1,26 +1,30 @@
 name: Xcode project rename
 
-# Runs on macOS, because only macOS can build iOS and macOS apps.
-# It creates a fresh Flutter app, renames its Xcode project with this package
-# and checks that the app still builds.
 on:
   push:
   workflow_dispatch:
 
 jobs:
   rename-and-build:
+    name: rename-and-build (${{ matrix.label }})
     runs-on: macos-latest
     strategy:
       fail-fast: false
       matrix:
-        flutter-version: ['stable', '3.24.0']
+        include:
+          - label: latest stable
+            flutter-version: ''
+          - label: 3.24.0
+            flutter-version: '3.24.0'
+          - label: 3.19.0
+            flutter-version: '3.19.0'
     steps:
       - uses: actions/checkout@v4
 
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: ${{ matrix.flutter-version == 'stable' && '' || matrix.flutter-version }}
+          flutter-version: ${{ matrix.flutter-version }}
 
       - name: Create a new Flutter app
         run: flutter create --platforms=ios,macos --project-name ci_app ${{ runner.temp }}/ci_app
