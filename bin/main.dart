@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:rename_app/constants.dart';
 import 'package:rename_app/rename_app.dart';
 import 'package:rename_app/utils.dart';
+import 'package:rename_app/xcode_project.dart';
 import 'package:yaml/yaml.dart';
 
 String? android;
@@ -39,6 +40,22 @@ void main(List<String> arguments) async {
       return;
     }
   }
+
+  /// `xcode=<name>` renames the Xcode project and workspace. It is taken out
+  /// of the arguments here, so it also works together with `all=<name>`.
+  String? xcodeName;
+  for (final arg in arguments) {
+    if (arg.startsWith('xcode=')) {
+      xcodeName = arg.substring('xcode='.length);
+    }
+  }
+  arguments = arguments.where((arg) => !arg.startsWith('xcode=')).toList();
+
+  if (xcodeName != null && arguments.isEmpty) {
+    await XcodeProject.renameAll(xcodeName);
+    return;
+  }
+
   parseArguments(arguments);
   Utils.logMessage('📱 Android App Name: $android');
   Utils.logMessage('📱 IOS App Name: $ios');
@@ -53,6 +70,10 @@ void main(List<String> arguments) async {
   // await RenameApp.mac(mac ?? '');
   await RenameApp.windows(windows ?? '');
   await RenameApp.linux(linux ?? '');
+
+  if (xcodeName != null) {
+    await XcodeProject.renameAll(xcodeName);
+  }
 
   Utils.logMessage(
     "--------------------------------\n✅  RENAMED APPS SUCCESSFULLY!\n--------------------------------",

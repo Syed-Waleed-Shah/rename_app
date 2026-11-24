@@ -99,6 +99,16 @@ dart run rename_app:main android="Android Name" ios="IOS Name" others="Others Na
 dart run rename_app:main android="Android Name" ios="IOS Name" web="Web Name" mac="Mac Name" windows="Windows Name" linux="Linux Name"
 ```
 
+##### Rename the Xcode project and workspace (optional)
+
+By default every Flutter app has `Runner.xcodeproj` and `Runner.xcworkspace` in `ios/` and `macos/`. To rename them, add `xcode`:
+
+```sh
+dart run rename_app:main xcode="MyApp"
+```
+
+This renames the project and workspace to `MyApp.xcodeproj` and `MyApp.xcworkspace` and updates the files that point to them. The `Runner` folder, target and scheme are not changed. The name can only contain letters, numbers, `_` and `-`. It can be combined with the other arguments, for example `all="My App" xcode="MyApp"`.
+
 ## More Flexibilities 😎
 
 | REQUIREMENT  | COMMAND                                                                                   |
@@ -110,4 +120,5 @@ dart run rename_app:main android="Android Name" ios="IOS Name" web="Web Name" ma
 | Only WEB     | ``dart run rename_app:main web="Web App"``                                                |
 | ONLY Windows | ``dart run rename_app:main windows="Windows App"``                                        |
 | ONLY Linux   | ``dart run rename_app:main linux="Linux App"``                                            |
+| Xcode project | ``dart run rename_app:main xcode="MyApp"``                                           |
 | With Others  | ``dart run rename_app:main android="Android App" ios="IOS App" others="Others App Name"`` |

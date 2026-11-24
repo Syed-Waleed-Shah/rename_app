@@ -1,0 +1,52 @@
+name: Xcode project rename
+
+# Runs on macOS, because only macOS can build iOS and macOS apps.
+# It creates a fresh Flutter app, renames its Xcode project with this package
+# and checks that the app still builds.
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  rename-and-build:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        flutter-version: ['stable', '3.24.0']
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ matrix.flutter-version == 'stable' && '' || matrix.flutter-version }}
+
+      - name: Create a new Flutter app
+        run: flutter create --platforms=ios,macos --project-name ci_app ${{ runner.temp }}/ci_app
+
+      - name: Add this package to the app
+        working-directory: ${{ runner.temp }}/ci_app
+        run: flutter pub add rename_app --path ${{ github.workspace }}
+
+      - name: Rename the Xcode project
+        working-directory: ${{ runner.temp }}/ci_app
+        run: dart run rename_app:main xcode=MyApp
+
+      - name: Check the renamed files
+        working-directory: ${{ runner.temp }}/ci_app
+        run: |
+          test -d ios/MyApp.xcodeproj
+          test -d ios/MyApp.xcworkspace
+          test -d macos/MyApp.xcodeproj
+          test -d macos/MyApp.xcworkspace
+          test ! -d ios/Runner.xcodeproj
+          test ! -d macos/Runner.xcodeproj
+
+      - name: Build iOS
+        working-directory: ${{ runner.temp }}/ci_app
+        run: flutter build ios --no-codesign
+
+      - name: Build macOS
+        working-directory: ${{ runner.temp }}/ci_app
+        run: flutter build macos
