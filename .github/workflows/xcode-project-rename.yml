@@ -16,8 +16,8 @@ jobs:
             flutter-version: ''
           - label: 3.24.0
             flutter-version: '3.24.0'
-          - label: 3.19.0
-            flutter-version: '3.19.0'
+          - label: 3.22.0
+            flutter-version: '3.22.0'
     steps:
       - uses: actions/checkout@v4
 
