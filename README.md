@@ -16,7 +16,7 @@ Honourable Contributors:
 
 1. [Finn Drünert](https://github.com/Finnomator "Github Profile") ( [Github](https://github.com/Finnomator "Github Profile") )
 2. [nhan7777](https://github.com/nhan7777 "https://github.com/nhan7777") ( [Github](https://github.com/nhan7777) )
-3. [Harsh Yadav](https://github.com/harshyadavDeveloper "Github Profile") ( [Github](https://github.com/harshyadavDeveloper "Github Profile") )
+3. [Harsh Yadav](https://github.com/harshyadavDeveloper "Github Profile") ( [Github](https://github.com/harshyadavDeveloper "Github Profile") [LinkedIn](https://www.linkedin.com/in/harsh-yadav-041062254/ "LinkedIn Profile") )
 
 ## Features 🔥
 

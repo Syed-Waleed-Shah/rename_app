@@ -1,3 +1,7 @@
+## 1.6.7
+
+* iOS: Only `CFBundleDisplayName` is changed when renaming an app; `CFBundleName` is left untouched. If the plist has no `CFBundleDisplayName`, it is added so the rename still takes effect. This reverses the `CFBundleName` behavior introduced in 1.6.3. Thanks to [Harsh Yadav](https://github.com/harshyadavDeveloper) for contribution.
+
 ## 1.6.6
 
 * Reads `config_name.name` from `pubspec.yaml` and uses it as the app name when you run `dart run rename_app:main` with no CLI arguments (equivalent to `all="<name>"`). If `config_name` or `name` is missing, behavior is unchanged (help is shown). Thanks to [Harsh Yadav](https://github.com/harshyadavDeveloper) for contribution.
