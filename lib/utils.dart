@@ -45,15 +45,28 @@ class Utils {
 
     /// Removing xml elements which are generated due to line breaks (this xml parser is creating xml element as 'XmlText' for line breaks)
     keys.removeWhere((element) => element is XmlText);
+    var foundDisplayName = false;
     for (int i = 0; i < keys.length; i++) {
-      /// Will be true if google is already configured
-      if (keys[i].innerText == 'CFBundleDisplayName' ||
-          keys[i].innerText == 'CFBundleName') {
+      /// Only the user facing name (CFBundleDisplayName) is changed.
+      /// CFBundleName is the short/internal bundle name, so it is left as is.
+      if (keys[i].innerText == 'CFBundleDisplayName') {
+        foundDisplayName = true;
         var value = XmlElement(XmlName('string'));
         value.innerText = appName;
         keys.removeAt(i + 1);
         keys.insert(i + 1, value);
       }
+    }
+
+    /// Some projects have no CFBundleDisplayName at all. Add it so the rename
+    /// still takes effect now that CFBundleName is no longer touched.
+    if (!foundDisplayName) {
+      var key = XmlElement(XmlName('key'));
+      key.innerText = 'CFBundleDisplayName';
+      var value = XmlElement(XmlName('string'));
+      value.innerText = appName;
+      keys.add(key);
+      keys.add(value);
     }
     await saveFile(filePath, document.toXmlString(pretty: true));
     printFinishMessage('ios');
